@@ -5,7 +5,7 @@ $username = $_SESSION['userName'];
 echo "Today's date is :";
 $today = date("m/d/Y");
 echo $today.'<br><br>';
-$case_id = mt_rand(0,9999999);
+$case_id = mt_rand(1000000,9999999);
 $_SESSION['caseName'] = $case_id;
 //check if the case id is dupplicated
 /*
@@ -51,9 +51,9 @@ if(isset($_POST['submit'])&&isset($username)){
      <title>New case</title>
    </head>
    <body>
-     <form class="addCase" action="addCase.php" method="post">
+     <form class="addCase" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        Child's name:
-       <input type="text" name="childname" value="honey badger"><br>
+       <input type="text" name="childname" value="popeye"><br>
        <p>*This information will not be stored on our server </p>
        Child's date of birth:
        <input type="date" name="dob"><br>

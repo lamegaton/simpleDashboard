@@ -13,9 +13,15 @@ $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if($mysqli === false){
     die("ERROR: Could not connect. " . $mysqli->connect_error);
 }
-/*
-else{
-  echo "connect successfully!";
+
+function mysql_fix_string($string){
+  if (get_magic_quotes_gpc()) $string = stripslashes($string);
+  return $mysqli->real_escape_string($string);
 }
-*/
+
+function mysql_entities_fix_string( $string)
+{
+  return htmlentities(mysql_fix_string($mysqli, $string));
+}
+
 ?>
