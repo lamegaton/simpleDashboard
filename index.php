@@ -1,13 +1,13 @@
 <?php
   session_start();
+  // Change value in config.php when upload to vietslp host
   require_once "config.php";
   $_SESSION['userName_wp'] = isset($_SESSION['userName_wp']) ? $_SESSION['userName_wp'] : include "logout.php";
   $user_name = "";
   $counter=0;
   $case_id_array=array();
   $_SESSION['userName']=isset($_SESSION['userName']) ? $_SESSION['userName'] : '';
-  // echo $_SESSION['userName_wp'];
-  $sql = "SELECT DISTINCT case_id FROM user_meta WHERE name = ?";
+  $sql = "SELECT DISTINCT case_id FROM user_meta WHERE user_name = ?";
   if($stmt = $mysqli->prepare($sql)){
       $stmt->bind_param("s", $user_name);
       $user_name = $_SESSION['userName_wp'];

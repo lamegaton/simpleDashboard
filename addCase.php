@@ -16,24 +16,10 @@ this is linked to each user
 $sql_form ="INSERT INTO `user_meta`(name,case_id,case_number,form,form_status)
 VALUES
 ('$username','$case_id',1,'parent_survey','incomplete'),
-('$username','$case_id',1,'nwr','incomplete'),
-('$username','$case_id',1,'picture_naming','incomplete'),
-('$username','$case_id',1,'pictureID','incomplete')
-/*
-ON DUPLICATE KEY UPDATE
-name='$username',
-case_id='$case_id',
-case_number=case_number+1,
-UPDATE t1 SET c=c+1 WHERE a=1;
-*/
-";
+('$username','$case_id',2,'nwr','incomplete'),
+('$username','$case_id',3,'picture_naming','incomplete'),
+('$username','$case_id',4,'pictureID','incomplete')";
 
-
-/*
-ON DUPLICATE KEY UPDATE
-name='$username',
-case_id='$case_id'
-*/
 if(isset($_POST['submit'])&&isset($username)){
   if ($mysqli->query($sql_form) === TRUE) {
    header("Location:showCase.php");
@@ -42,7 +28,7 @@ if(isset($_POST['submit'])&&isset($username)){
   }
 }
 
- ?>
+?>
 
  <!DOCTYPE html>
  <html lang="en" dir="ltr">

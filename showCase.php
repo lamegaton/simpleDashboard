@@ -1,8 +1,6 @@
 <?php
 /*
-This is because these values have been
-entered by the user and therefore cannot be trusted, as a hacker
-could make a cross-site scripting attempt by adding HTML charac‐
+A hacker could make a cross-site scripting attempt by adding HTML charac‐
 ters and other symbols to the input. htmlspecialchars translates
 any such input into harmless HTML entities
 */
